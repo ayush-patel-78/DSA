@@ -24,8 +24,8 @@ public:
     }
     int minCost(vector<int>& houses, vector<vector<int>>& cost, int m, int n, int target) {
         memset(dp,-1,sizeof dp);
-        int ans = INT_MAX/2;
-        ans = help(0,0,0,houses,cost,m,n,target);
+        
+        int ans = help(0,0,0,houses,cost,m,n,target);
         if(ans==INT_MAX/2) return -1;
         return ans;
     }
