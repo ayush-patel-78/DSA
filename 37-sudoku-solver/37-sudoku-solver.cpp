@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    // vector<vector<char>> board2(9,vector<char>(9,'.'));
+    
     bool isPossible(int i,int j,vector<vector<char>>& board,char k){
         // no same elements in a row
         for(int x=0;x<board.size();x++){
