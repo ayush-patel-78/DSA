@@ -97,29 +97,45 @@ Node* buildTree(string str)
 class Solution
 {
     public:
-    bool static compare(Node*& a1,Node*& a2){
-        if(a1->data<a2->data) return true;
-        else return false;
-    }
-    void inorderTraversal(Node* root,vector<Node*>& arr,ll& sum){
-        if(root==NULL) return;
-        inorderTraversal(root->left,arr,sum);
-        arr.push_back(root);
-        sum+=root->data;
-        inorderTraversal(root->right,arr,sum);
-    }
+    // Approach 1  time complexity O(nlogn) and space complexity O(n);
+    // this approach is valid for all binary tree
+    // bool static compare(Node*& a1,Node*& a2){
+    //     if(a1->data<a2->data) return true;
+    //     else return false;
+    // }
+    // void inorderTraversal(Node* root,vector<Node*>& arr,ll& sum){
+    //     if(root==NULL) return;
+    //     inorderTraversal(root->left,arr,sum);
+    //     arr.push_back(root);
+    //     sum+=root->data;
+    //     inorderTraversal(root->right,arr,sum);
+    // }
+    // void transformTree(struct Node *root)
+    // {
+    //     vector<Node*> arr;
+    //     ll sum = 0;
+    //     inorderTraversal(root,arr,sum);
+    //     sort(arr.begin(),arr.end(),compare);
+    //     ll current_sum = 0;
+    //     for(int i=0;i<arr.size();i++){
+    //         current_sum +=arr[i]->data;
+    //         arr[i]->data = sum - current_sum;
+    //     }
+    // }
+    
+    
+    // Approach 2 since its a BST we can do post order traversal and do the task efficiently 
+    // time complexity O(n) and space complexity O(1)
+    ll sum = 0;
     void transformTree(struct Node *root)
     {
-        vector<Node*> arr;
-        ll sum = 0;
-        inorderTraversal(root,arr,sum);
-        sort(arr.begin(),arr.end(),compare);
-        ll current_sum = 0;
-        for(int i=0;i<arr.size();i++){
-            current_sum +=arr[i]->data;
-            arr[i]->data = sum - current_sum;
-        }
+        if(root==NULL)return;
+        transformTree(root->right);
+         sum+=root->data;
+        root->data = sum - root->data;
+        transformTree(root->left);
     }
+    
 };
 
 // { Driver Code Starts.
