@@ -41,6 +41,10 @@ public:
     vector<int> searchRange(vector<int>& nums, int target) {
         vector<int> ans;
         ans.push_back(binarySearch_first(nums,target));
+        if(ans[0]==-1){
+            ans.push_back(-1);
+            return ans;
+        }
         ans.push_back(binarySearch_last(nums,target));
         return ans;
     }
