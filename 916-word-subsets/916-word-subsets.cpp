@@ -3,14 +3,11 @@ public:
     vector<string> wordSubsets(vector<string>& words1, vector<string>& words2) {
          vector<string> ans;
          vector<unordered_map<char,int>> v;
-        set<string> st;
+        
         for(int j=0;j<words2.size();j++){
-            st.insert(words2[j]);
-        }
-        for(auto x:st){
             unordered_map<char,int> mpp;
-            for(int k=0;k < x.size();k++){
-                mpp[x[k]]++;
+            for(int k=0;k < words2[j].size();k++){
+                mpp[words2[j][k]]++;
             }
             v.push_back(mpp);
         }
