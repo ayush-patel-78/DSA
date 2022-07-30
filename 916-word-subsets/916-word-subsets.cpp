@@ -4,6 +4,7 @@ public:
          vector<string> ans;
          vector<unordered_map<char,int>> v;
         set<string> st;
+         unordered_map<char,int> hehe;
         for(int j=0;j<words2.size();j++){
             st.insert(words2[j]);
         }
@@ -12,11 +13,8 @@ public:
             for(int k=0;k < x.size();k++){
                 mpp[x[k]]++;
             }
-            v.push_back(mpp);
-        }
-        unordered_map<char,int> hehe;
-        for(int i=0;i<v.size();i++){
-            for(auto x:v[i]){
+            // v.push_back(mpp);
+            for(auto x:mpp){
                 if(hehe.find(x.first)==hehe.end()){
                     hehe[x.first]=x.second;
                 }
@@ -26,7 +24,21 @@ public:
                     }
                 }
             }
+            mpp.clear();
         }
+       
+        // for(int i=0;i<v.size();i++){
+        //     for(auto x:v[i]){
+        //         if(hehe.find(x.first)==hehe.end()){
+        //             hehe[x.first]=x.second;
+        //         }
+        //         else{
+        //             if(x.second > hehe[x.first]){
+        //                 hehe[x.first]=x.second;
+        //             }
+        //         }
+        //     }
+        // }
         
         // for(int j=0;j<words2.size();j++){
         //     unordered_map<char,int> mpp;
