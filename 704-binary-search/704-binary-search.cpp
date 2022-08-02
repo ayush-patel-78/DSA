@@ -5,7 +5,7 @@ public:
         int high = nums.size()-1;
         int mid ;
         while(lo <= high){
-            mid = lo + (high - lo)/2;
+            mid = (lo + high)/2;
             if(nums[mid]==target){
                 return mid;
             }
