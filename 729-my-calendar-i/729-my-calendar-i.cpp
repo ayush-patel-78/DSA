@@ -7,7 +7,7 @@ public:
     
     bool book(int start, int end) {
         for(int i=0;i<pr.size();i++){
-            if((pr[i].first <= start && start < pr[i].second) || (start <= pr[i].first && pr[i].first < end)){
+            if((start < pr[i].second && pr[i].first < end)){
                 return false;
             }
             
