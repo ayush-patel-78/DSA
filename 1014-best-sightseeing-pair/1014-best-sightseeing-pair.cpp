@@ -4,12 +4,12 @@ public:
     int maxScoreSightseeingPair(vector<int>& values) {
         
         ll maximum = 0;
-        for(ll i=0;i<values.size();i++){
-            for(ll j=i+1;j<values.size() && (j-i)<=values[i] ;j++){
-                int curr = values[i]+values[j] -j + i ;
-                if(curr > maximum) maximum = curr;
-            }
+        int startGain = values[0];
+        int overallGain = 0;
+        for(int i=1;i<values.size();i++){
+            startGain = max(startGain,values[i-1]+i-1);
+            overallGain = max(overallGain,startGain+values[i]-i);
         }
-        return maximum;
+        return overallGain;
     }
 };
