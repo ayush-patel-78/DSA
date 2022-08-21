@@ -40,7 +40,7 @@ public:
             cout<<s<<" ";
             temp.push_back(s);
         }
-        if(digits.length() == 1)return temp;
+        // if(digits.length() == 1)return temp;
         int i = 1;
         while (i <= digits.size() - 1)
         {
