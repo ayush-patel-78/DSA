@@ -14,7 +14,15 @@ public:
                 }
                 if(grid[i][j]==1){
                     check0 = false;
-                    que.push({make_pair(i,j),0});
+                    vector<int> rows = {+1,-1,0,0};
+                    vector<int> cols = {0,0,+1,-1};
+            
+                    for(int k=0;k<4;k++){
+                        if(i+rows[k]>=0 && i+rows[k]<row && j+cols[k]>=0 && j+cols[k]<col && grid[i+rows[k]][j+cols[k]]==0){
+                            que.push({make_pair(i,j),0});
+                            break;
+                        }
+                    }
                 }
             }
            
