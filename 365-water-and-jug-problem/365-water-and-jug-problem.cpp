@@ -6,7 +6,7 @@ public:
         if(n<0 || n > j1 + j2) return false;
         if(st.find(n) != st.end()) return false;
         else st.insert(n);
-        cout<<n<<" ";
+        // cout<<n<<" ";
         if(dfs(j1-n,j1,j2,tc,st)) return true;
         if(dfs(j2-n,j1,j2,tc,st)) return true;
         if(dfs(n+j1,j1,j2,tc,st)) return true;
