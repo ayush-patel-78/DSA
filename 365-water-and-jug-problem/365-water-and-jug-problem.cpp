@@ -16,7 +16,7 @@ public:
     }
     bool canMeasureWater(int j1, int j2, int tc) {
         unordered_set<int> st;
-        if(tc > j1 + j2) return false;
+        // if(tc > j1 + j2) return false;
         if(j1%2 == 0 && j2%2 == 0 && tc%2==1) return false;
         int n = 0;
         if(dfs(n,j1,j2,tc,st)) return true;
