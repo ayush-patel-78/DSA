@@ -12,33 +12,20 @@
 class Solution {
 public:
     int ans ;
-    vector<int> dfs(TreeNode* root){
+    pair<int,int> dfs(TreeNode* root){
         if(root==NULL){
-            vector<int> v= {0,0};
-            return v;
+             return {0,0};
         }
-        vector<vector<int>> left;
-        vector<vector<int>> right;
-        if(root->left){
-            left.push_back(dfs(root->left));
-        }
-        if(root->right){
-            right.push_back(dfs(root->right));
-        }
-        int sum = root->val;
-        int nodes = 1;
-        if(left.size()>0){
-            sum += left[0][0];
-            nodes += left[0][1];
-        }
-        if(right.size()>0){
-            sum += right[0][0];
-            nodes += right[0][1];
-        }
+        pair<int,int> left;
+        pair<int,int> right;
+        left = dfs(root->left);
+        right = dfs(root->right);
+       
+        int sum = left.first + right.first + root->val;
+        int nodes = left.second + right.second + 1;
         int avg = sum/nodes;
         if(avg == root->val) ans++;
-        vector<int> res = {sum,nodes};
-        return res;
+        return {sum,nodes};
         
     }
     int averageOfSubtree(TreeNode* root) {
