@@ -1,3 +1,4 @@
+#define ll long long
 class Solution {
 public:
     int countPrimes(int n) {
@@ -9,7 +10,7 @@ public:
         for(int i=0;i<n;i++){
             if(check[i]==true){
                 count++;
-                for(int j=i*2,k=2;j<n;j=i*k){
+                for(ll j=(ll)i*i,k=i;j<n;j=i*k){
                     check[j]=false;
                     k++;
                 }
