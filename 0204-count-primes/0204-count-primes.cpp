@@ -10,10 +10,12 @@ public:
         for(int i=0;i<n;i++){
             if(check[i]==true){
                 count++;
-                for(ll j=(ll)i*i,k=i;j<n;j=i*k){
-                    check[j]=false;
-                    k++;
-                }
+                if(i<=sqrt(n)){
+                    for(ll j=(ll)i*i,k=i;j<n;j=i*k){
+                        check[j]=false;
+                        k++;
+                    }
+                } 
             }
         }
         return count;
