@@ -21,20 +21,16 @@ private:
  
         res = min(res, f(idx+1, prev, curCharFreqCount, s, k-1, dp));
         
-        // case 2
         if(s[idx] != prev)
             res = min(res, 1 + f(idx + 1, s[idx], 1, s, k, dp));
-        
-        // case 3
+    
         else{
-            
-            // case 3.1
+
             if(curCharFreqCount == 1 || curCharFreqCount == 9)
             {
                 res = min(res, 1 + f(idx + 1, prev, (curCharFreqCount + 1), s, k, dp));
             }
             
-            // case 3.2
             else{
                 res = min(res, f(idx + 1, prev, curCharFreqCount + 1, s, k, dp));
             }
@@ -52,8 +48,7 @@ public:
         if(n == 100)
         {
             bool allSame = true;
-            
-            // Base case: check for all char are same
+        
             for(int i = 1; i < n; i++)
             {
                 if(s[i] != s[i-1])
