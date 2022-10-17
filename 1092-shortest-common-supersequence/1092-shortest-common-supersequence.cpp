@@ -25,31 +25,46 @@ public:
           }
           else{
               if(dp[i-1][j] > dp[i][j-1]){
+                  s.push_back(str1[i-1]);
                   i--;
-              }else j--;
+              }else{
+                  s.push_back(str2[j-1]);
+                  j--;
+              } 
           }
+      }
+      while(i>0){
+          s.push_back(str1[i-1]);
+          i--;
+      }
+      while(j>0){
+          s.push_back(str2[j-1]);
+          j--;
       }
       reverse(s.begin(),s.end());
-        i = 0;
-        j = 0;
-        int k = 0;
-        string ans;
-      while(i<n || j<m){
-          if(str1[i]==str2[j] && str1[i]==s[k]){
-              ans.push_back(s[k]);
-              i++;
-              j++;
-              k++;
-          }
-          if(i<n && str1[i] != s[k]){
-              ans.push_back(str1[i]);
-              i++;
-          }
-          if(j<m && str2[j] != s[k]){
-              ans.push_back(str2[j]);
-              j++;
-          }
-      }
-      return ans;
+        return s;
+        
+    // my version little bit extended approach 
+      //   i = 0;
+      //   j = 0;
+      //   int k = 0;
+      //   string ans;
+      // while(i<n || j<m){
+      //     if(str1[i]==str2[j] && str1[i]==s[k]){
+      //         ans.push_back(s[k]);
+      //         i++;
+      //         j++;
+      //         k++;
+      //     }
+      //     if(i<n && str1[i] != s[k]){
+      //         ans.push_back(str1[i]);
+      //         i++;
+      //     }
+      //     if(j<m && str2[j] != s[k]){
+      //         ans.push_back(str2[j]);
+      //         j++;
+      //     }
+      // }
+      // return ans;
     }
 };
