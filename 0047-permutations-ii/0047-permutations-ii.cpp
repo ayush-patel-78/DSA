@@ -16,8 +16,10 @@ public:
                 else k++;
                 count++;
             }
+            
             st.insert(vec);
-            solve(vec,st,i+1);
+            
+             solve(vec,st,i+1);
         }
     }
     vector<vector<int>> permuteUnique(vector<int>& nums) {
