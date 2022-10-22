@@ -2,11 +2,10 @@ class Solution {
 public:
     string minWindow(string s, string t) {
         unordered_map<char,int> mpp;
-        unordered_map<char,int> mpp2;
+       
         int required = 0;
         for(int i=0;i<t.size();i++){
             mpp[t[i]]++;
-            mpp2[t[i]]++;
             required++;
         }
         vector<char> curr;
