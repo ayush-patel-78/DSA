@@ -21,8 +21,8 @@ public:
         for(auto x:mpp){
             string rev = x.first;
             reverse(rev.begin(),rev.end());
-            pal = check_palindrome(x.first);
-            if(!pal && mpp[rev] > 0 && mpp[x.first] > 0){
+           
+            if ( mpp[rev] > 0 && mpp[x.first] > 0){
                 int hehe = min(mpp[x.first],mpp[rev]);
                 mpp[x.first]-= hehe;
                 mpp[rev]-=hehe;
